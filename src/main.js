@@ -1,7 +1,14 @@
 import Vue from 'vue'
 
+let mixin = {
+  created() {
+    console.log('child mixin created')
+  }
+}
+
 let childComp = {
   template: `<div>{{msg}}</div>`,
+  mixins: [mixin],
   created() {
     console.log('child created')
   },
@@ -17,7 +24,7 @@ let childComp = {
 
 Vue.mixin({
   created() {
-    console.log('parent created')
+    console.log('global mixin created')
   }
 })
 
